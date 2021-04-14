@@ -1,2 +1,32 @@
-<h1>List#new</h1>
-<p>Find me in app/views/list/new.html.erb</p>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>投稿一覧</title>
+    <link ral="stylesheet" herf="" />
+  </head>
+
+  <body>
+    <main>
+      <h1>Books</h1>
+      <% @book.each do |book| %>
+       <span><%= book.title %></span>
+      <% end %>
+
+  </main>
+
+    <sub>
+
+    </sub>
+  </body>
+</html>
+
+<h1>新規投稿</h1>
+<!-- form_with部分 -->
+<%= form_with model: @list, url:'/list', local:true do |f| %>
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿' %>
+<% end %>
