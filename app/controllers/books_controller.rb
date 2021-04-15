@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     # ２. データをデータベースに保存するためのsaveメソッド実行
     book.save
     # ３. 詳細へリダイレクト
-    redirect_to book_path(list.ids)
+    redirect_to book_path(book.id)
   end
 
   def show
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to book_path
+    redirect_to new_book_path
   end
 
   # こっから下はコントローラーの中でしか呼ばないぞ
