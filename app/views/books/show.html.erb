@@ -1,7 +1,9 @@
 <p>Title: <%= @book.title %></p>
 <p>Body: <%= @book.body %></p>
 
- "Edit" | "Back"
+<!--<a href="/list/#{@book.id}/edit">Edit</a> | <a href="/list/new">Back</a>-->
+
+ <%= link_to "Edit", edit_book_path(@book.id) %> | <%= link_to "Back", new_book_path %>
 <!--<a class="back" href="/book">Back</a>-->
 
 <!--%= link_to "削除", destroy_list_path(@book.id), method: :delete, "data-confirm" => "削除する？" %>-->
