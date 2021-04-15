@@ -32,7 +32,9 @@
  <h1>new book</h1>
  <!-- form_with部分 -->
  <%= form_with model: @book, url:'/books', local:true do |f| %>
-
+<% .notifications
+     - flash.each do |key, value|
+       = content_tag(:div, value, class: key) %>
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>body</h4>

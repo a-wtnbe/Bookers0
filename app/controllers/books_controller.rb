@@ -7,6 +7,13 @@ class BooksController < ApplicationController
 
   # 新規投稿
   def create
+    @message = @group.messages.new(message_params)
+    if @message.save
+      redirect_to group_messages_path(@group),notice: 'successfuly'
+    else
+      flash.now[:alert] = 'error'
+      render :new
+    end
     # １. データを新規登録するためのインスタンス作成
     book = Book.new(book_params)
     # ２. データをデータベースに保存するためのsaveメソッド実行
